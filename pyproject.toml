@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "plant buddies"
+version = "0.0.1"
+description = "Plant combinations based on permaculture principles"
+authors = ["Tamas Elekes <email>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.8"
+pandas = "1.4.1"
+
+[tool.poetry-dynamic-versioning]
+enable = true
+vcs = "git"
+pattern = "^(?P<base>\\d+\\.\\d+\\.\\d+)"
+format-jinja = "{% if distance == 0 %}{{ base }}{% else %}{{ base }}dev{{ distance }}+{{ commit }}{% endif %}"
+
+
+[build-system]
+requires = ["poetry-core>=1.0.0", "poetry-dynamic-versioning"]
+build-backend = "poetry.core.masonry.api"
